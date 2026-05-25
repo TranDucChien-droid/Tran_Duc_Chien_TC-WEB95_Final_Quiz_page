@@ -18,5 +18,8 @@
   "lightMode": "Chế độ sáng",
   "language": "Ngôn ngữ",
   "back": "Quay lại",
-  "needLogin": "Vui lòng đăng nhập"
+  "needLogin": "Vui lòng đăng nhập",
+  "signingIn": "Đang đăng nhập…",
+  "registering": "Đang tạo tài khoản…",
+  "submitting": "Đang nộp bài…"
 }

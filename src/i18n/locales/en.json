@@ -18,5 +18,8 @@
   "lightMode": "Light mode",
   "language": "Language",
   "back": "Back",
-  "needLogin": "Please sign in to continue"
+  "needLogin": "Please sign in to continue",
+  "signingIn": "Signing in…",
+  "registering": "Creating account…",
+  "submitting": "Submitting…"
 }

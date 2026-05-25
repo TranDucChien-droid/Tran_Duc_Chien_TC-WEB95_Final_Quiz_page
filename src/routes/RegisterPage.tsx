@@ -48,8 +48,8 @@ export function RegisterPage() {
             autoComplete="new-password"
           />
         </div>
-        <Button type="submit" fullWidth disabled={register.isPending} className="disabled:opacity-60">
-          {t("register")}
+        <Button type="submit" fullWidth loading={register.isPending}>
+          {register.isPending ? t("registering") : t("register")}
         </Button>
         <p className="text-center text-sm text-slate-600 dark:text-slate-400">
           <Link to="/login" className="text-teal-700 underline dark:text-teal-400">

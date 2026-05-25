@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useMemo, useState } from "react";
 import { Link, useRouter } from "@tanstack/react-router";
 import { Button } from "@/components/Button";
+import { QuizDetailSkeleton } from "@/components/skeletons/QuizDetailSkeleton";
 import { useQuizDetail } from "@/hooks/useQuizDetail";
 import { useSubmitAttempt } from "@/hooks/useSubmitAttempt";
 
@@ -18,6 +19,7 @@ export function QuizPlayPage() {
   const submitAttemptMutation = useSubmitAttempt();
 
   const questions = data?.questions ?? [];
+  const isSubmitting = submitAttemptMutation.isPending;
 
   function toggleOption(qid: string, idx: number, type: "single" | "multiple") {
     setSelections((prev) => {
@@ -55,7 +57,7 @@ export function QuizPlayPage() {
   }
 
   if (!quizId) return <p className="text-red-600">Invalid quiz</p>;
-  if (isLoading) return <p className="text-slate-600 dark:text-slate-400">…</p>;
+  if (isLoading) return <QuizDetailSkeleton variant="play" />;
   if (error || !data) return <p className="text-red-600">Failed to load quiz</p>;
 
   return (
@@ -97,6 +99,7 @@ export function QuizPlayPage() {
                         type={inputType}
                         name={q.type === "single" ? q._id : `${q._id}-${i}`}
                         checked={selected}
+                        disabled={isSubmitting}
                         onChange={() => toggleOption(q._id, i, q.type)}
                         className="mt-1"
                       />
@@ -113,10 +116,11 @@ export function QuizPlayPage() {
       <Button
         fullWidth
         className="py-3 font-semibold"
-        disabled={submitAttemptMutation.isPending || !questions.length}
+        loading={isSubmitting}
+        disabled={!questions.length}
         onClick={() => void submit()}
       >
-        {t("submit")}
+        {isSubmitting ? t("submitting") : t("submit")}
       </Button>
     </div>
   );

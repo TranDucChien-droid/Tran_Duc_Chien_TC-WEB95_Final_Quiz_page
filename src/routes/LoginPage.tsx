@@ -47,8 +47,8 @@ export function LoginPage() {
             autoComplete="current-password"
           />
         </div>
-        <Button type="submit" fullWidth disabled={login.isPending} className="disabled:opacity-60">
-          {t("login")}
+        <Button type="submit" fullWidth loading={login.isPending}>
+          {login.isPending ? t("signingIn") : t("login")}
         </Button>
         <p className="text-center text-sm text-slate-600 dark:text-slate-400">
           <Link to="/register" className="text-teal-700 underline dark:text-teal-400">
