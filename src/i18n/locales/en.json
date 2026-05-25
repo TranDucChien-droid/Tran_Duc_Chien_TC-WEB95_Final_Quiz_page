@@ -1,0 +1,22 @@
+{
+  "appTitle": "Quiz Player",
+  "login": "Sign in",
+  "register": "Create account",
+  "email": "Email",
+  "password": "Password",
+  "logout": "Log out",
+  "quizzes": "Available quizzes",
+  "start": "Start",
+  "submit": "Submit answers",
+  "score": "Your score",
+  "correct": "Correct",
+  "total": "Total questions",
+  "myAttempts": "My attempts",
+  "quiz": "Quiz",
+  "date": "Date",
+  "darkMode": "Dark mode",
+  "lightMode": "Light mode",
+  "language": "Language",
+  "back": "Back",
+  "needLogin": "Please sign in to continue"
+}

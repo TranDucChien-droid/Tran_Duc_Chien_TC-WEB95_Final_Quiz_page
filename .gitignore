@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-ssr/
+.env
+*.log
+npm-debug.log*
+.DS_Store
+*.local
+coverage/
+*.tsbuildinfo
+
+package-lock.json

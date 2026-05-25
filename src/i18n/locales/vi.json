@@ -1,0 +1,22 @@
+{
+  "appTitle": "Làm bài Quiz",
+  "login": "Đăng nhập",
+  "register": "Đăng ký",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "logout": "Đăng xuất",
+  "quizzes": "Đề thi có sẵn",
+  "start": "Bắt đầu",
+  "submit": "Nộp bài",
+  "score": "Điểm của bạn",
+  "correct": "Đúng",
+  "total": "Tổng số câu",
+  "myAttempts": "Lịch sử làm bài",
+  "quiz": "Đề",
+  "date": "Ngày",
+  "darkMode": "Chế độ tối",
+  "lightMode": "Chế độ sáng",
+  "language": "Ngôn ngữ",
+  "back": "Quay lại",
+  "needLogin": "Vui lòng đăng nhập"
+}
