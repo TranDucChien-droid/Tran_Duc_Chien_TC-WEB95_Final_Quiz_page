@@ -5,6 +5,7 @@
   "email": "Email",
   "password": "Mật khẩu",
   "logout": "Đăng xuất",
+  "signedInAs": "Đăng nhập với",
   "quizzes": "Đề thi có sẵn",
   "noQuizzes": "Chưa có đề thi nào.",
   "start": "Bắt đầu",
@@ -33,6 +34,7 @@
   "answerReview": "Xem lại câu trả lời",
   "showAnswers": "Xem câu trả lời",
   "hideAnswers": "Ẩn câu trả lời",
+  "viewAttemptDetails": "Xem chi tiết",
   "noAttempts": "Chưa có lượt làm bài.",
   "noReviewableAttempts": "Không có lượt làm bài nào có chi tiết để xem lại. Các lượt cũ có thể không hiển thị."
 }

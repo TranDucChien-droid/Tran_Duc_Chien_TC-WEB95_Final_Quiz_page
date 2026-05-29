@@ -1,4 +1,5 @@
 import { AppLayout } from "@/components/AppLayout";
+import { PublicLayout } from "@/components/PublicLayout";
 import { getToken } from "@/services/api";
 import { AttemptsPage } from "@/routes/AttemptsPage";
 import { LoginPage } from "@/routes/LoginPage";
@@ -11,14 +12,20 @@ const rootRoute = createRootRoute({
   component: () => <Outlet />,
 });
 
-const loginRoute = createRoute({
+const publicLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
+  id: "publicLayout",
+  component: PublicLayout,
+});
+
+const loginRoute = createRoute({
+  getParentRoute: () => publicLayoutRoute,
   path: "login",
   component: LoginPage,
 });
 
 const registerRoute = createRoute({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => publicLayoutRoute,
   path: "register",
   component: RegisterPage,
 });
@@ -51,8 +58,7 @@ const attemptsRoute = createRoute({
 });
 
 const routeTree = rootRoute.addChildren([
-  loginRoute,
-  registerRoute,
+  publicLayoutRoute.addChildren([loginRoute, registerRoute]),
   appLayoutRoute.addChildren([indexRoute, playRoute, attemptsRoute]),
 ]);
 

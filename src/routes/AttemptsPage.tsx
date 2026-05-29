@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AttemptAnswerReview, isAttemptReviewable } from "@/components/AttemptAnswerReview";
+import { Button } from "@/components/Button";
+import { Drawer } from "@/components/Drawer";
 import { QuizListSkeleton } from "@/components/skeletons/QuizListSkeleton";
 import { useMyAttempts } from "@/hooks/useMyAttempts";
 import type { AttemptRow } from "@/types/quiz.types";
@@ -9,9 +11,13 @@ function quizTitle(quizId: AttemptRow["quizId"]) {
   return typeof quizId === "object" && quizId && "title" in quizId ? quizId.title : "Quiz";
 }
 
-function AttemptCard({ attempt }: { attempt: AttemptRow }) {
+type AttemptCardProps = {
+  attempt: AttemptRow;
+  onView: () => void;
+};
+
+function AttemptCard({ attempt, onView }: AttemptCardProps) {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
   const answers = attempt.answers ?? [];
 
   return (
@@ -23,16 +29,9 @@ function AttemptCard({ attempt }: { attempt: AttemptRow }) {
         </div>
         <div className="text-lg font-semibold text-teal-700 dark:text-teal-400">{attempt.score}%</div>
       </div>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="mt-3 text-sm font-medium text-teal-700 hover:underline dark:text-teal-400"
-      >
-        {open ? t("hideAnswers") : t("showAnswers")} ({answers.length})
-      </button>
-      {open && (
-        <AttemptAnswerReview answers={answers} className="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800" />
-      )}
+      <Button className="mt-4 w-full" variant="outline" onClick={onView}>
+        {t("viewAttemptDetails")} ({answers.length})
+      </Button>
     </li>
   );
 }
@@ -40,6 +39,7 @@ function AttemptCard({ attempt }: { attempt: AttemptRow }) {
 export function AttemptsPage() {
   const { t } = useTranslation();
   const { data, isLoading } = useMyAttempts();
+  const [selectedAttempt, setSelectedAttempt] = useState<AttemptRow | null>(null);
 
   const reviewableAttempts = useMemo(
     () => (data ?? []).filter(isAttemptReviewable),
@@ -58,10 +58,35 @@ export function AttemptsPage() {
       ) : (
         <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {reviewableAttempts.map((a) => (
-            <AttemptCard key={a._id} attempt={a} />
+            <AttemptCard key={a._id} attempt={a} onView={() => setSelectedAttempt(a)} />
           ))}
         </ul>
       )}
+
+      <Drawer
+        open={selectedAttempt != null}
+        onClose={() => setSelectedAttempt(null)}
+        title={selectedAttempt ? quizTitle(selectedAttempt.quizId) : ""}
+      >
+        {selectedAttempt && (
+          <div className="space-y-4">
+            <div className="rounded-lg border border-teal-200 bg-teal-50 p-4 dark:border-teal-900 dark:bg-teal-950/40">
+              <p className="text-lg font-semibold">
+                {t("score")}: {selectedAttempt.score}%
+              </p>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                {new Date(selectedAttempt.createdAt).toLocaleString()}
+              </p>
+            </div>
+            <section>
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
+                {t("answerReview")}
+              </h3>
+              <AttemptAnswerReview answers={selectedAttempt.answers ?? []} />
+            </section>
+          </div>
+        )}
+      </Drawer>
     </div>
   );
 }

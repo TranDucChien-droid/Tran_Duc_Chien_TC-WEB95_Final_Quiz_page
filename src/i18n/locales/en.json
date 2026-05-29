@@ -5,6 +5,7 @@
   "email": "Email",
   "password": "Password",
   "logout": "Log out",
+  "signedInAs": "Signed in as",
   "quizzes": "Available quizzes",
   "noQuizzes": "No quizzes available.",
   "start": "Start",
@@ -33,6 +34,7 @@
   "answerReview": "Answer review",
   "showAnswers": "Show answers",
   "hideAnswers": "Hide answers",
+  "viewAttemptDetails": "View details",
   "noAttempts": "No attempts yet.",
   "noReviewableAttempts": "No attempts with answer details to review. Older submissions may not be shown."
 }
