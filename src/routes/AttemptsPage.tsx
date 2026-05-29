@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { Drawer } from "@/components/Drawer";
 import { QuizListSkeleton } from "@/components/skeletons/QuizListSkeleton";
 import { useMyAttempts } from "@/hooks/useMyAttempts";
+import { CARD_GRID_CLASS } from "@/constants/grid";
 import type { AttemptRow } from "@/types/quiz.types";
 
 function quizTitle(quizId: AttemptRow["quizId"]) {
@@ -47,7 +48,7 @@ export function AttemptsPage() {
   );
 
   return (
-    <div>
+    <div className="w-full">
       <h1 className="mb-6 text-2xl font-semibold">{t("myAttempts")}</h1>
       {isLoading ? (
         <QuizListSkeleton withTrailing />
@@ -56,7 +57,7 @@ export function AttemptsPage() {
           {data?.length ? t("noReviewableAttempts") : t("noAttempts")}
         </p>
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className={CARD_GRID_CLASS}>
           {reviewableAttempts.map((a) => (
             <AttemptCard key={a._id} attempt={a} onView={() => setSelectedAttempt(a)} />
           ))}

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { QuizListSkeleton } from "@/components/skeletons/QuizListSkeleton";
+import { CARD_GRID_CLASS } from "@/constants/grid";
 import { useQuizzes } from "@/hooks/useQuizzes";
 
 export function QuizHomePage() {
@@ -8,14 +9,14 @@ export function QuizHomePage() {
   const { data, isLoading } = useQuizzes();
 
   return (
-    <div>
+    <div className="w-full">
       <h1 className="mb-6 text-2xl font-semibold">{t("quizzes")}</h1>
       {isLoading ? (
         <QuizListSkeleton withTrailing />
       ) : !data?.length ? (
         <p className="text-slate-600 dark:text-slate-400">{t("noQuizzes")}</p>
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className={CARD_GRID_CLASS}>
           {data.map((q) => (
             <li key={q._id}>
               <Link
