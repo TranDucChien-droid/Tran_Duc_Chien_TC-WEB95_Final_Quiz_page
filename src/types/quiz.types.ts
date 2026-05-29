@@ -16,11 +16,24 @@ export type Question = {
 
 export type QuizDetail = Quiz & { questions: Question[] };
 
+export type AttemptAnswerDetail = {
+  questionId: string;
+  selectedIndexes: number[];
+  question?: string;
+  type?: "single" | "multiple";
+  options?: string[];
+  selectedLabels?: string[];
+  correctIndexes?: number[];
+  correctLabels?: string[];
+  isCorrect?: boolean;
+};
+
 export type AttemptRow = {
   _id: string;
   quizId: { _id: string; title: string } | string;
   score: number;
   createdAt: string;
+  answers?: AttemptAnswerDetail[];
 };
 
 export type SubmitAttemptResult = {
@@ -29,4 +42,5 @@ export type SubmitAttemptResult = {
   correct: number;
   total: number;
   createdAt: string;
+  answers?: AttemptAnswerDetail[];
 };

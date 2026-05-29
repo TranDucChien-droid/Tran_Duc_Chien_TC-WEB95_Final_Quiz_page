@@ -6,6 +6,7 @@
   "password": "Password",
   "logout": "Log out",
   "quizzes": "Available quizzes",
+  "noQuizzes": "No quizzes available.",
   "start": "Start",
   "submit": "Submit answers",
   "score": "Your score",
@@ -21,5 +22,17 @@
   "needLogin": "Please sign in to continue",
   "signingIn": "Signing in…",
   "registering": "Creating account…",
-  "submitting": "Submitting…"
+  "submitting": "Submitting…",
+  "answerCorrect": "Correct",
+  "answerIncorrect": "Incorrect",
+  "yourAnswer": "Your answer",
+  "correctAnswer": "Correct answer",
+  "noAnswer": "No answer",
+  "noAnswerDetails": "No answer details available.",
+  "unknownQuestion": "Unknown question",
+  "answerReview": "Answer review",
+  "showAnswers": "Show answers",
+  "hideAnswers": "Hide answers",
+  "noAttempts": "No attempts yet.",
+  "noReviewableAttempts": "No attempts with answer details to review. Older submissions may not be shown."
 }

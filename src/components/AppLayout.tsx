@@ -24,10 +24,25 @@ export function AppLayout() {
             {t("appTitle")}
           </Link>
           <nav className="flex flex-wrap items-center gap-2 text-sm">
-            <Link to="/" className="rounded-md px-2 py-1 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <Link
+              to="/"
+              activeOptions={{ exact: true }}
+              className="rounded-md px-2 py-1 font-medium text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+              activeProps={{
+                className:
+                  "rounded-md px-2 py-1 font-medium bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-200",
+              }}
+            >
               {t("quizzes")}
             </Link>
-            <Link to="/attempts" className="rounded-md px-2 py-1 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <Link
+              to="/attempts"
+              className="rounded-md px-2 py-1 font-medium text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+              activeProps={{
+                className:
+                  "rounded-md px-2 py-1 font-medium bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-200",
+              }}
+            >
               {t("myAttempts")}
             </Link>
             <div
@@ -60,7 +75,7 @@ export function AppLayout() {
           </nav>
         </div>
       </header>
-      <main className="mx-auto max-w-3xl px-4 py-8">
+      <main className="mx-auto max-w-6xl px-4 py-8">
         <Outlet />
       </main>
     </div>

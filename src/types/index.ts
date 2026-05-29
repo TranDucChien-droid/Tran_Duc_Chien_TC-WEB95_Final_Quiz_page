@@ -1,1 +1,8 @@
-export type { AttemptRow, Question, Quiz, QuizDetail, SubmitAttemptResult } from "./quiz.types";
+export type {
+  AttemptAnswerDetail,
+  AttemptRow,
+  Question,
+  Quiz,
+  QuizDetail,
+  SubmitAttemptResult,
+} from "./quiz.types";

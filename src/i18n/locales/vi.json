@@ -6,6 +6,7 @@
   "password": "Mật khẩu",
   "logout": "Đăng xuất",
   "quizzes": "Đề thi có sẵn",
+  "noQuizzes": "Chưa có đề thi nào.",
   "start": "Bắt đầu",
   "submit": "Nộp bài",
   "score": "Điểm của bạn",
@@ -21,5 +22,17 @@
   "needLogin": "Vui lòng đăng nhập",
   "signingIn": "Đang đăng nhập…",
   "registering": "Đang tạo tài khoản…",
-  "submitting": "Đang nộp bài…"
+  "submitting": "Đang nộp bài…",
+  "answerCorrect": "Đúng",
+  "answerIncorrect": "Sai",
+  "yourAnswer": "Câu trả lời của bạn",
+  "correctAnswer": "Đáp án đúng",
+  "noAnswer": "Không trả lời",
+  "noAnswerDetails": "Không có chi tiết câu trả lời.",
+  "unknownQuestion": "Câu hỏi không xác định",
+  "answerReview": "Xem lại câu trả lời",
+  "showAnswers": "Xem câu trả lời",
+  "hideAnswers": "Ẩn câu trả lời",
+  "noAttempts": "Chưa có lượt làm bài.",
+  "noReviewableAttempts": "Không có lượt làm bài nào có chi tiết để xem lại. Các lượt cũ có thể không hiển thị."
 }
