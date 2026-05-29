@@ -63,13 +63,6 @@ export function answerByQuestionId(answers: AttemptAnswerDetail[] | undefined, q
   return answers?.find((a) => String(a.questionId) === String(questionId));
 }
 
-export function isAttemptReviewable(attempt: { answers?: AttemptAnswerDetail[] }): boolean {
-  const answers = attempt.answers;
-  if (!answers?.length) return false;
-  return answers.some(
-    (a) =>
-      Boolean(a.question?.trim()) ||
-      typeof a.isCorrect === "boolean" ||
-      Boolean(a.selectedLabels?.length)
-  );
+export function isAttemptReviewable(attempt: { reviewable?: boolean }): boolean {
+  return attempt.reviewable === true;
 }

@@ -34,6 +34,7 @@ export type AttemptRow = {
   score: number;
   createdAt: string;
   answers?: AttemptAnswerDetail[];
+  reviewable?: boolean;
 };
 
 export type SubmitAttemptResult = {
